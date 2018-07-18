@@ -21,7 +21,7 @@ if [ -f "${TOMCAT_HOME}/webapps/ROOT/WEB-INF/slaves" ];then
     table=`echo $table|grep ^[^#]` ##过滤以＃开头的字符串
     echo "###正在向${table}同步${filename}..."
     folder=`echo ${filename%/*}` #切割出来文件夹目录，如果文件夹不存在则创建
-    ssh $table "mkdir -p $folder;exit"
+    ssh $table "mkdir -p $folder"
     echo "mkdirs"
     scp $filename $table:$folder
     echo "Done"
